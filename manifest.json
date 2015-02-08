@@ -2,17 +2,22 @@
   "name": "DoubanFM-Cycle",
   "description": "打造更方便更适合听的豆瓣FM",
   "version": "0.0.1",  
+  "permissions": ["webRequest", "webRequestBlocking",
+                  "http://douban.fm/*"],
+  "background": {
+    "scripts": ["background.js"]
+  },
   "content_scripts": [
     {
-      "matches": ["http://*/*"],
+      "matches": ["http://douban.fm/*"],
       "css": ["style.css"],
       "js": ["jquery.js", "script.js"]
     }
   ],
   "manifest_version": 2,
   "icons":{
-  	"16": "16.png",
-    "48": "48.png",
-    "128": "128.png"
+  	"16": "douban.png",
+    "48": "douban.png",
+    "128": "douban.png"
   }
 }
