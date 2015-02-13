@@ -1,42 +1,11 @@
 .manipulator {
-
-	width:100px;
-	height:100px;
+	background: #9dd6c5;
+	width:36px;
+	height:36px;
 	position:fixed;
-	bottom:0;
+	bottom:5px;
+	right:20px;
+	cursor: pointer;
+
 
 }
-
-.manipulator#small {
-	right:300px;
-	background-color:orange;	
-}
-
-.manipulator#medium {
-	right:200px;
-	background-color:green;	
-}
-
-.manipulator#large {
-	right:100px;
-	background-color:blue;	
-}
-
-.manipulator#xlarge {
-	right:0;
-	background-color:yellow;	
-}
-
-body.small {
-	width:320px !important;
-}
-body.medium {
-	width:640px !important;
-}
-body.large {
-	width:960px !important;
-}
-body.xlarge {
-	width:100% !important;
-}
-

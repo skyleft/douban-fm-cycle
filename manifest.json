@@ -2,8 +2,8 @@
   "name": "DoubanFM-Cycle",
   "description": "打造更方便更适合听的豆瓣FM",
   "version": "0.0.1",  
-  "permissions": ["webRequest", "webRequestBlocking",
-                  "http://douban.fm/*"],
+  "permissions": ["webRequest", "webRequestBlocking","storage",
+                  "http://*/*"],
   "background": {
     "scripts": ["background.js"]
   },
