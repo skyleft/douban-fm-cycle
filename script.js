@@ -5,6 +5,7 @@ $(document).ready(function(){
 
 	var isRepeat = false;
 	$("#repeat").click(function(){
+
 		//chrome.storage.local.get('isRepeat',function(data){
 			if(isRepeat){
 				isRepeat = false;

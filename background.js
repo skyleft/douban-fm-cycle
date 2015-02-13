@@ -1,11 +1,14 @@
 var prevSong;
+var prevPic;
 var isRepeat = false;
 chrome.webRequest.onBeforeRequest.addListener(
         function(details) {
           //return {cancel: false}; 
           var pat = /^.*mr\d{1}\.douban.com.*\.mp4$/;
-          var currentSong = details.url;
-          if(pat.test(currentSong)){
+          var imgPat = /^.*img\d{1}\.douban.com.*lpic.*\.jpg/;
+          
+          //handle the audio request
+          if(pat.test(details.url)){
             // chrome.storage.local.get('isRepeat',function(data){
             //   if (data.isRepeat) {
             //     chrome.storage.local.get('currentSong',function(data2){
@@ -20,12 +23,24 @@ chrome.webRequest.onBeforeRequest.addListener(
             //     saveCurrentSong(currentSong);
             //   }
             // });
+            var currentSong = details.url;
             if(isRepeat&&prevSong&&(prevSong!=currentSong)){
               return {redirectUrl:prevSong};
             }else{
               prevSong = currentSong;
             }
-          } 
+          };
+
+          //handle the music picture request
+          if (imgPat.test(details.url)) {
+            var currentPic = details.url;
+            if(isRepeat&&prevPic&&(prevPic!=currentPic)){
+              return {redirectUrl:prevPic};
+            }else{
+              prevPic = currentPic;
+            }
+          };
+
        },
         {urls: ["*://*.douban.com/*"],types:["image", "object","other"]},
         ["blocking"]
